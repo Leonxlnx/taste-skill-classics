@@ -123,7 +123,7 @@ To guarantee a premium, non-generic output, you MUST strictly avoid these common
 
 ### External Resources & Components
 * **NO Broken Unsplash Links:** Do not use Unsplash. Use absolute, reliable placeholders like `https://picsum.photos/seed/{random_string}/800/600` or SVG UI Avatars.
-* **shadcn/ui Customization:** You may use `shadcn/ui`, but NEVER in its generic default state. You MUST customize the radii, colors, and shadows to match the high-end project aesthetic.
+* **shadcn/ui Customization:** You may use `shadcn/ui`, but NEVER in its generic default state. You MUST customize the radii, colors, and shadows to match the high-end project aesthetic — unless the project already has established design tokens, in which case those tokens take precedence.
 * **Production-Ready Cleanliness:** Code must be extremely clean, visually striking, memorable, and meticulously refined in every detail.
 
 ## 8. THE CREATIVE ARSENAL (High-End Inspiration)
@@ -191,7 +191,7 @@ Do not default to generic UI. Pull from this library of advanced concepts to ens
 * **Lens Blur Depth:** Dynamic focus blurring background UI layers to highlight a foreground action.
 
 ## 9. THE "MOTION-ENGINE" BENTO PARADIGM
-When generating modern SaaS dashboards or feature sections, you MUST utilize the following "Bento 2.0" architecture and motion philosophy. This goes beyond static cards and enforces a "Vercel-core meets Dribbble-clean" aesthetic heavily reliant on perpetual physics.
+When the user asks for a marketing page or a feature-showcase section, you MUST utilize the following "Bento 2.0" architecture and motion philosophy. This goes beyond static cards and enforces a "Vercel-core meets Dribbble-clean" aesthetic heavily reliant on perpetual physics. **SCOPE:** These animations are demo content illustrating what a product could do — apply them only to showcase sections that are clearly demo. Never simulate activity, auto-reorder, or loop on real product UI backed by live data or operational controls; in a working dashboard or app, cards stay honest and quiet.
 
 ### A. Core Design Philosophy
 * **Aesthetic:** High-end, minimal, and functional.
@@ -205,12 +205,12 @@ When generating modern SaaS dashboards or feature sections, you MUST utilize the
 All cards must contain **"Perpetual Micro-Interactions."** Use the following Framer Motion principles:
 * **Spring Physics:** No linear easing. Use `type: "spring", stiffness: 100, damping: 20` for a premium, weighty feel.
 * **Layout Transitions:** Heavily utilize the `layout` and `layoutId` props to ensure smooth re-ordering, resizing, and shared element state transitions.
-* **Infinite Loops:** Every card must have an "Active State" that loops infinitely (Pulse, Typewriter, Float, or Carousel) to ensure the dashboard feels "alive".
+* **Infinite Loops:** In a showcase section, every card must have an "Active State" that loops infinitely (Pulse, Typewriter, Float, or Carousel) to make the demo feel "alive". Cards that render real data or controls the user operates do not loop — they stay still so the interface stays trustworthy.
 * **Performance:** Wrap dynamic lists in `<AnimatePresence>` and optimize for 60fps. **PERFORMANCE CRITICAL:** Any perpetual motion or infinite loop MUST be memoized (React.memo) and completely isolated in its own microscopic Client Component. Never trigger re-renders in the parent layout.
 
 ### C. The 5-Card Archetypes (Micro-Animation Specs)
 Implement these specific micro-animations when constructing Bento grids (e.g., Row 1: 3 cols | Row 2: 2 cols split 70/30):
-1. **The Intelligent List:** A vertical stack of items with an infinite auto-sorting loop. Items swap positions using `layoutId`, simulating an AI prioritizing tasks in real-time.
+1. **The Intelligent List:** A vertical stack of demo items with an infinite auto-sorting loop. Items swap positions using `layoutId`, simulating an AI prioritizing tasks in real-time. This is a marketing animation only — never auto-sort a real task list, queue, or operational data.
 2. **The Command Input:** A search/AI bar with a multi-step Typewriter Effect. It cycles through complex prompts, including a blinking cursor and a "processing" state with a shimmering loading gradient.
 3. **The Live Status:** A scheduling interface with "breathing" status indicators. Include a pop-up notification badge that emerges with an "Overshoot" spring effect, stays for 3 seconds, and vanishes.
 4. **The Wide Data Stream:** A horizontal "Infinite Carousel" of data cards or metrics. Ensure the loop is seamless (using `x: ["0%", "-100%"]`) with a speed that feels effortless.
